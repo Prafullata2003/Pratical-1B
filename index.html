@@ -1,0 +1,180 @@
+HOME.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admin Dashboard</title>
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2 sidebar bg-dark">
+<ul>
+<li><a href="#">Dashboard</a></li>
+<li><a href="#">Students</a></li>
+<li><a href="#">Teachers</a></li>
+<li><a href="#">Courses</a></li>
+</ul>
+</div>
+<div class="col-md-10 content">
+<h2>Add Student Information</h2>
+<form id="studentForm">
+<div class="form-group">
+<label for="studentName">Student Name:</label>
+<input type="text" class="form-control" id="studentName" required>
+</div>
+<div class="form-group">
+<label for="studentPhone">Student Phone:</label>
+<input type="text" class="form-control" id="studentPhone" required>
+</div>
+<div class="form-group">
+<label for="studentDOB">Date of Birth:</label>
+<input type="date" class="form-control" id="studentDOB" required>
+</div>
+<div class="form-group">
+<label for="studentGender">Gender:</label><br>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label>
+</div>
+<div class="form-group">
+<label for="studentEmail">Student Email:</label>
+<input type="email" class="form-control" id="studentEmail" required>
+</div>
+<div class="form-group">
+<label for="studentRoll">Student Roll No.:</label>
+<input type="text" class="form-control" id="studentRoll" required>
+</div>
+<div class="form-group">
+<label for="studentRegDate">Registration Date:</label>
+<input type="date" class="form-control" id="studentRegDate" required>
+</div>
+<div class="form-group">
+<label for="studentBranch">Branch:</label>
+<select class="form-control" id="studentBranch" required>
+<option value="">Select Branch</option>
+<option value="CS">Computer Science</option>
+<option value="MECH">Mechanical</option>
+<option value="ELEC">Electrical</option>
+</select>
+</div>
+<div class="form-group">
+<label for="parentName">Parent Name:</label>
+<input type="text" class="form-control" id="parentName" required>
+</div>
+<div class="form-group">
+<label for="parentPhone">Parent Phone No.:</label>
+<input type="text" class="form-control" id="parentPhone" required>
+</div>
+<button type="submit" class="btn-primary">Submit</button>
+</form>
+<div id="studentInfo" class="mt-4"></div>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+ Display.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #dacccc;
+margin: 0;
+padding: 0;}
+.container {
+max-width: 800px;
+margin: 50px auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0px 0px 10px 0px rgba(66, 131, 93, 0.7);
+}
+h2 {
+text-align: center;
+margin-bottom: 20px;
+}
+.card-container {
+display: flex;
+flex-direction: column;
+}
+.card strong {
+color: #007bff;
+}
+.card p {
+margin: 0;}
+.card {
+margin-bottom: 20px;
+padding: 20px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 5px;
+box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.card strong {
+color: #007bff;
+}
+.card:last-child {
+margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Student Information</h2>
+<div class="card-container">
+<div class="card name"></div>
+<div class="card phone"></div>
+<div class="card dob"></div>
+<div class="card gender"></div>
+<div class="card email"></div>
+<div class="card roll"></div>
+<div class="card regDate"></div>
+<div class="card branch"></div>
+<div class="card parentName"></div>
+<div class="card parentPhone"></div>
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+// Retrieve student data from localStorage
+const studentData = JSON.parse(localStorage.getItem('studentData'));
+// Display student information
+document.querySelector('.name').innerHTML = `<strong>Name:</strong> 
+${studentData.name}`;
+document.querySelector('.phone').innerHTML = `<strong>Phone:</strong> 
+${studentData.phone}`;
+document.querySelector('.dob').innerHTML = `<strong>Date of Birth:</strong> 
+${studentData.dob}`;
+document.querySelector('.gender').innerHTML = `<strong>Gender:</strong> 
+${studentData.gender}`;
+document.querySelector('.email').innerHTML = `<strong>Email:</strong> 
+${studentData.email}`;
+document.querySelector('.roll').innerHTML = `<strong>Roll No.:</strong> 
+${studentData.roll}`;
+document.querySelector('.regDate').innerHTML = `<strong>Registration 
+Date:</strong> ${studentData.regDate}`;
+document.querySelector('.branch').innerHTML = `<strong>Branch:</strong> 
+${studentData.branch}`;
+document.querySelector('.parentName').innerHTML = `<strong>Parent Name:</strong> 
+${studentData.parentName}`;
+document.querySelector('.parentPhone').innerHTML = `<strong>Parent Phone:</strong> 
+${studentData.parentPhone}`;
+</script>
+</body>
+</html>
+
